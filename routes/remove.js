@@ -1,7 +1,9 @@
 import { Router } from "express";
 import sqlite3 from "sqlite3";
 import fs from "fs";
-
+import dotenv from "dotenv";
+dotenv.config();
+const files_path = process.env.FILES_PATH;
 const router = Router();
 
 router.post("/drop", (req, res) => {
@@ -145,7 +147,7 @@ router.post("/", (req, res) => {
             throw err;
           }
           const photo = row.file_name;
-          const path = `../madej.art-nextjs/public/images/${photo}`;
+          const path = `${files_path}/${photo}`;
           fs.unlink(path, (err) => {
             if (err) {
               console.error(err.message);

@@ -1,13 +1,15 @@
 import { Router } from "express";
 import sqlite3 from "sqlite3";
 import multer from "multer";
-
 import sharp from "sharp";
 import { arePhotosInDb, addTags } from "../lib/addFunctions.js";
+import dotenv from "dotenv";
+dotenv.config();
+const files_path = process.env.FILES_PATH;
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../madej.art-nextjs/public/images");
+    cb(null, files_path);
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);

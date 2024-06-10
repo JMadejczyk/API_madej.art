@@ -13,7 +13,10 @@ import updateRoute from "./routes/update.js";
 import requireAuth from "./lib/auth.js";
 
 const app = express();
-const port = 3001;
+import dotenv from "dotenv";
+dotenv.config();
+const origin = process.env.CORS_ORIGIN;
+const port = process.env.PORT;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,7 +26,7 @@ import cors from "cors";
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: origin,
     credentials: true,
   })
 );
@@ -56,5 +59,5 @@ app.use("/api/photos/swap", swapRoute);
 app.use("/api/photos/update", updateRoute);
 
 app.listen(port, () => {
-  console.log(`App running on http://localhost:${port}`);
+  console.log(`App running on port: ${port}`);
 });
