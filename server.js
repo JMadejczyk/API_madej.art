@@ -17,6 +17,7 @@ import dotenv from "dotenv";
 dotenv.config();
 const origin = process.env.CORS_ORIGIN;
 const port = process.env.PORT;
+const secret = process.env.SESSION_SECRET;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,7 +34,7 @@ app.use(
 
 app.use(
   session({
-    secret: "dupa1234",
+    secret: secret,
     resave: false,
     saveUninitialized: false,
     cookie: {
