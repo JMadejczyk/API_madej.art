@@ -4,7 +4,7 @@ const router = Router();
 
 router.get("/", (req, res) => {
   let db = new sqlite3.Database(
-    "./database/portfolio.db",
+    "./src/database/portfolio.db",
     sqlite3.OPEN_READONLY,
     (err) => {
       if (err) {
@@ -31,7 +31,7 @@ router.get("/", (req, res) => {
 
 router.get("/all", (req, res) => {
   let db = new sqlite3.Database(
-    "./database/portfolio.db",
+    "./src/database/portfolio.db",
     sqlite3.OPEN_READONLY,
     (err) => {
       if (err) {
@@ -57,7 +57,7 @@ router.get("/all", (req, res) => {
 
 router.get("/count", (req, res) => {
   let db = new sqlite3.Database(
-    "./database/portfolio.db",
+    "./src/database/portfolio.db",
     sqlite3.OPEN_READONLY,
     (err) => {
       if (err) {
@@ -83,7 +83,7 @@ router.get("/count", (req, res) => {
 
 router.get("/tags/allcount", (req, res) => {
   let db = new sqlite3.Database(
-    "./database/portfolio.db",
+    "./src/database/portfolio.db",
     sqlite3.OPEN_READONLY,
     (err) => {
       if (err) {
@@ -110,7 +110,7 @@ router.get("/tags/allcount", (req, res) => {
 
 router.get("/tags/all", (req, res) => {
   let db = new sqlite3.Database(
-    "./database/portfolio.db",
+    "./src/database/portfolio.db",
     sqlite3.OPEN_READONLY,
     (err) => {
       if (err) {
@@ -137,7 +137,7 @@ router.get("/tags/all", (req, res) => {
 
 router.get("/tags/:photo_id", (req, res) => {
   let db = new sqlite3.Database(
-    "./database/portfolio.db",
+    "./src/database/portfolio.db",
     sqlite3.OPEN_READONLY,
     (err) => {
       if (err) {

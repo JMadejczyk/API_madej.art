@@ -22,7 +22,7 @@ const router = Router();
 
 router.post("/check", (req, res) => {
   let db = new sqlite3.Database(
-    "./database/portfolio.db",
+    "./src/database/portfolio.db",
     sqlite3.OPEN_READONLY,
     (err) => {
       if (err) {
@@ -55,7 +55,7 @@ router.post("/check", (req, res) => {
 
 router.post("/tag", (req, res) => {
   let db = new sqlite3.Database(
-    "./database/portfolio.db",
+    "./src/database/portfolio.db",
     sqlite3.OPEN_READWRITE,
     (err) => {
       if (err) {
@@ -145,7 +145,7 @@ router.post("/top", upload.array("images"), async (req, res) => {
   console.log(photos);
 
   let db = new sqlite3.Database(
-    "./database/portfolio.db",
+    "./src/database/portfolio.db",
     sqlite3.OPEN_READWRITE,
     (err) => {
       if (err) {
@@ -271,7 +271,7 @@ router.post("/bottom", upload.array("images"), async (req, res) => {
   console.log(photos);
 
   let db = new sqlite3.Database(
-    "./database/portfolio.db",
+    "./src/database/portfolio.db",
     sqlite3.OPEN_READWRITE,
     (err) => {
       if (err) {

@@ -8,7 +8,7 @@ const router = Router();
 
 router.post("/drop", (req, res) => {
   let db = new sqlite3.Database(
-    "./database/portfolio.db",
+    "./src/database/portfolio.db",
     sqlite3.OPEN_READWRITE,
     (err) => {
       if (err) {
@@ -44,7 +44,7 @@ router.post("/drop", (req, res) => {
 
 router.post("/tag", (req, res) => {
   let db = new sqlite3.Database(
-    "./database/portfolio.db",
+    "./src/database/portfolio.db",
     sqlite3.OPEN_READWRITE,
     (err) => {
       if (err) {
@@ -93,7 +93,7 @@ router.post("/tag", (req, res) => {
 
 router.use((req, res, next) => {
   let db = new sqlite3.Database(
-    "./database/portfolio.db",
+    "./src/database/portfolio.db",
     sqlite3.OPEN_READONLY,
     (err) => {
       if (err) {
@@ -130,7 +130,7 @@ router.post("/", (req, res) => {
   const data = req.body;
   const photos = data.photos;
   let db = new sqlite3.Database(
-    "./database/portfolio.db",
+    "./src/database/portfolio.db",
     sqlite3.OPEN_READWRITE,
     (err) => {
       if (err) {

@@ -6,7 +6,7 @@ const router = Router();
 
 router.post("/", async (req, res) => {
   let db = new sqlite3.Database(
-    "./database/portfolio.db",
+    "./src/database/portfolio.db",
     sqlite3.OPEN_READONLY,
     (err) => {
       if (err) {

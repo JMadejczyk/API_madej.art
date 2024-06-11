@@ -5,7 +5,7 @@ const router = Router();
 
 router.use((req, res, next) => {
   let db = new sqlite3.Database(
-    "./database/portfolio.db",
+    "./src/database/portfolio.db",
     sqlite3.OPEN_READONLY,
     (err) => {
       if (err) {
@@ -49,7 +49,7 @@ router.use((req, res, next) => {
 
 router.post("/", (req, res) => {
   let db = new sqlite3.Database(
-    "./database/portfolio.db",
+    "./src/database/portfolio.db",
     sqlite3.OPEN_READWRITE,
     (err) => {
       if (err) {
