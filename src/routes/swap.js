@@ -25,7 +25,7 @@ router.use((req, res, next) => {
       next();
     } else {
       let answer = rows.map((row) => row.photo_id);
-      console.log(answer);
+      // console.log(answer);
       if (!answer.includes(first) && !answer.includes(second)) {
         return res
           .status(409)
@@ -76,13 +76,13 @@ router.post("/", (req, res) => {
         throw err;
       }
       let second_position = row.position;
-      console.log("First: " + first + " Second:" + second);
-      console.log(
-        "First position: " +
-          first_position +
-          " Second position: " +
-          second_position
-      );
+      // console.log("First: " + first + " Second:" + second);
+      // console.log(
+      //   "First position: " +
+      //     first_position +
+      //     " Second position: " +
+      //     second_position
+      // );
 
       db.run(sql2, [first, second], (err) => {
         if (err) {

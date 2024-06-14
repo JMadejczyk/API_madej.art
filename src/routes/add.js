@@ -32,7 +32,7 @@ router.post("/check", (req, res) => {
   );
   const data = req.body;
   const photoIds = data.photos.map((photo) => photo.photo_id);
-  console.log("PhotoIDS: " + photoIds);
+  // console.log("PhotoIDS: " + photoIds);
 
   const placeholders = photoIds.map(() => "?").join(",");
   let sql = `SELECT * FROM photos WHERE photo_id IN (${placeholders})`;
@@ -94,8 +94,8 @@ router.post("/tag", (req, res) => {
 ////////////////////////////////////////////////////////////////
 
 router.post("/top", upload.array("images"), async (req, res) => {
-  console.log(req.body);
-  console.log(req.files);
+  // console.log(req.body);
+  // console.log(req.files);
   if (req.files.length > 1) {
     for (const [index, file] of req.files.entries()) {
       file.description = req.body.descriptions[index];
@@ -142,7 +142,7 @@ router.post("/top", upload.array("images"), async (req, res) => {
 
   let photos = req.files;
 
-  console.log(photos);
+  // console.log(photos);
 
   let db = new sqlite3.Database(
     "./src/database/portfolio.db",
@@ -155,7 +155,7 @@ router.post("/top", upload.array("images"), async (req, res) => {
   );
   try {
     const arePhotos = await arePhotosInDb(db, photos);
-    console.log(arePhotos);
+    // console.log(arePhotos);
     if (arePhotos === false) {
       let sql2 = `UPDATE photos set position = (position + ?) * -1;`;
       db.run(sql2, [photos.length], (err) => {
@@ -268,7 +268,7 @@ router.post("/bottom", upload.array("images"), async (req, res) => {
 
   let photos = req.files;
 
-  console.log(photos);
+  // console.log(photos);
 
   let db = new sqlite3.Database(
     "./src/database/portfolio.db",
@@ -294,7 +294,7 @@ router.post("/bottom", upload.array("images"), async (req, res) => {
 
   try {
     const arePhotos = await arePhotosInDb(db, photos);
-    console.log(arePhotos);
+    // console.log(arePhotos);
     if (arePhotos === false) {
       let sql4 = `INSERT INTO photos
             (file_name, width, height, description, blurred, localization, position)

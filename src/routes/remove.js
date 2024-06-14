@@ -102,7 +102,7 @@ router.use((req, res, next) => {
     }
   );
   const data = req.body;
-  console.log(req.body);
+  // console.log(req.body);
   const photoIds = data.photos.map((photo) => photo.photo_id);
 
   const placeholders = photoIds.map(() => "?").join(",");
